@@ -18,17 +18,32 @@ class Carousel {
         // console.log(this.indexes);
 
         this.currentIndex = this.indexes[current];
-        console.log(current);
+        // console.log(current);
 
         this.images[current].style.display = 'flex';
 
-        this.rightButton.addEventListener('click', () => this.changeImage());
+        this.rightButton.addEventListener('click', () => this.changeImageRight());
+        this.leftButton.addEventListener('click', () => this.changeImageLeft());
     }
 
-    changeImage() {
+    changeImageRight() {
         current += 1;
         this.currentIndex = this.indexes[current];
-        console.log(current);
+        console.log(this.currentIndex);
+
+        Array.from(this.images).forEach(image => {
+            if (image.dataset.index === this.currentIndex) {
+                image.style.display = 'none';
+            } else {
+                image.style.display = 'flex';
+            }
+        });
+    }
+
+    changeImageLeft() {
+        current -= 1;
+        this.currentIndex = this.indexes[current];
+        console.log(this.currentIndex);
 
         Array.from(this.images).forEach(image => {
             if (image.dataset.index === this.currentIndex) {
