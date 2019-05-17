@@ -7,7 +7,6 @@
     6. Have fun!
 */
 
-let current = 0;
 
 class Carousel {
     constructor(carousel) {
@@ -16,40 +15,41 @@ class Carousel {
         this.images = carousel.querySelectorAll('img');
         this.indexes = ['1', '2', '3', '4'];
         // console.log(this.indexes);
-
-        this.currentIndex = this.indexes[current];
+        this.current = 0;
+        this.currentIndex = this.indexes[this.current];
         // console.log(current);
 
-        this.images[current].style.display = 'flex';
+        this.images[this.current].style.display = 'flex';
 
         this.rightButton.addEventListener('click', () => this.changeImageRight());
         this.leftButton.addEventListener('click', () => this.changeImageLeft());
     }
 
     changeImageRight() {
-        current += 1;
-        this.currentIndex = this.indexes[current];
+        this.current += 1;
+        this.currentIndex = this.indexes[this.current];
+        console.log(this.current);
         console.log(this.currentIndex);
 
         Array.from(this.images).forEach(image => {
             if (image.dataset.index === this.currentIndex) {
-                image.style.display = 'none';
-            } else {
                 image.style.display = 'flex';
+            } else {
+                image.style.display = 'none';
             }
         });
     }
 
     changeImageLeft() {
-        current -= 1;
-        this.currentIndex = this.indexes[current];
+        this.current -= 1;
+        this.currentIndex = this.indexes[this.current];
         console.log(this.currentIndex);
 
         Array.from(this.images).forEach(image => {
             if (image.dataset.index === this.currentIndex) {
-                image.style.display = 'none';
-            } else {
                 image.style.display = 'flex';
+            } else {
+                image.style.display = 'none';
             }
         });
     }
