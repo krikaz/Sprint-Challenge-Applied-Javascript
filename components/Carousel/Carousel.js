@@ -26,9 +26,13 @@ class Carousel {
     }
 
     changeImageRight() {
-        this.current += 1;
+        if (this.current === 3) {
+            this.current = 0;
+        } else {
+            this.current += 1;
+        }
         this.currentIndex = this.indexes[this.current];
-        console.log(this.current);
+        // console.log(this.current);
         console.log(this.currentIndex);
 
         Array.from(this.images).forEach(image => {
@@ -41,7 +45,11 @@ class Carousel {
     }
 
     changeImageLeft() {
-        this.current -= 1;
+        if (this.current === 0) {
+            this.current = 3;
+        } else {
+            this.current -= 1;
+        }
         this.currentIndex = this.indexes[this.current];
         console.log(this.currentIndex);
 
