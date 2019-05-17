@@ -29,8 +29,8 @@ class TabLink {
     // console.log(this.cards);
 
     // Add a click event that invokes this.selectTab
-    this.tabElement.addEventListener('click', this.selectTab);
-    console.log(this.tabElement);
+    this.tabElement.addEventListener('click', () => this.selectTab());
+    // console.log(this.tabElement);
 
   }
   selectTab(){
@@ -54,12 +54,12 @@ class TabLink {
     // console.log(cards);
     
     // Add a class of ".active-tab" to this.tabElement
-    // this.tabElement.classList.add('active-tab');
+    this.tabElement.classList.add('active-tab');
     console.log(this.tabElement);
 
   
     // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class. Just un-comment the code and study what is happening here.
-    // this.cards.forEach(card => card.selectCard());
+    this.cards.forEach(card => card.selectCard());
   }
 }
 
